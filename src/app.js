@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const productsRouter = require('./routes/productRoutes');
+const ordersRouter = require('./routes/orderRoutes');
 const errorHandler = require('./middlewares/errorHandler');
 const { logInfo } = require('./utils/logger');
 
@@ -38,6 +39,7 @@ app.get('/health', (req, res) => {
 
 // Routes
 app.use('/api/products', productsRouter);
+app.use('/api/orders', ordersRouter);
 
 // 404 handler
 app.use((req, res, next) => {
